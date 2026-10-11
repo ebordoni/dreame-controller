@@ -4,6 +4,7 @@ export type VacuumState = {
   attributes: {
     friendly_name?: string;
     battery_level?: number;
+    battery?: number;
     fan_speed?: string;
     supported_features?: number;
   };

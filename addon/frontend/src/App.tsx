@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 type Vacuum = {
   entity_id: string;
   state: string;
-  attributes: { friendly_name?: string; battery_level?: number; fan_speed?: string };
+  attributes: { friendly_name?: string; battery_level?: number; battery?: number; fan_speed?: string };
 };
 
 const actions = [
@@ -54,6 +54,7 @@ export default function App() {
   }, [refresh]);
 
   const vacuum = vacuums.find((item) => item.entity_id === selected);
+  const battery = vacuum?.attributes.battery_level ?? vacuum?.attributes.battery;
 
   async function runAction(action: string) {
     if (!selected) return;
@@ -100,10 +101,10 @@ export default function App() {
                     {stateLabels[vacuum.state] ?? vacuum.state}
                   </Badge>
                 </Group>
-                {typeof vacuum.attributes.battery_level === "number" && (
+                {typeof battery === "number" && (
                   <div>
-                    <Group justify="space-between"><Text>Batteria</Text><Text fw={700}>{vacuum.attributes.battery_level}%</Text></Group>
-                    <Progress value={vacuum.attributes.battery_level} mt="xs" />
+                    <Group justify="space-between"><Text>Batteria</Text><Text fw={700}>{battery}%</Text></Group>
+                    <Progress value={battery} mt="xs" />
                   </div>
                 )}
                 {vacuum.attributes.fan_speed && <Text size="sm">Aspirazione: {vacuum.attributes.fan_speed}</Text>}
