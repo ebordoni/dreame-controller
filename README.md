@@ -4,13 +4,13 @@ Addon per Home Assistant con un'interfaccia rapida per il robot Dreame D10 Plus 
 
 ## Stato
 
-Il modello D10 Plus Gen 2 (`dreame.vacuum.r2423`) compare nell'[elenco dei dispositivi supportati](https://dv.tasshack.com/guide/more/supported-devices). La connessione è stata verificata con firmware `4.3.3_1438`, account Dreamehome sul server Europa e integrazione Dreame Vacuum `v2.0.1`. Home Assistant ha creato l'entità `vacuum.d10_plus_gen_2` e rende disponibili stato, batteria, mappa e stanze. La prima versione dell'interfaccia offre stato, batteria, avvio, pausa, ripresa, stop e ritorno alla base. Le funzioni per stanze, zone e mappe verranno aggiunte dopo aver verificato i relativi comandi.
+Il modello D10 Plus Gen 2 (`dreame.vacuum.r2423`) compare nell'[elenco dei dispositivi supportati](https://dv.tasshack.com/guide/more/supported-devices). La connessione è stata verificata con firmware `4.3.3_1438`, account Dreamehome sul server Europa e integrazione Dreame Vacuum `v2.0.1`. Home Assistant ha creato l'entità `vacuum.d10_plus_gen_2` e rende disponibili stato, batteria, mappa e stanze. L'addon `0.1.2` è installato tramite URL del repository e la lettura di stato e batteria è stata verificata nell'interfaccia Ingress. Sono presenti i comandi di avvio, pausa, ripresa, stop e ritorno alla base; l'esecuzione dei comandi sul robot non è ancora stata verificata. Le funzioni per stanze, zone e mappe verranno aggiunte dopo aver verificato i relativi comandi.
 
-## Installazione prevista
+## Installazione
 
 1. Installare HACS e l'integrazione Dreame Vacuum in Home Assistant, seguendo la [guida ufficiale del progetto](https://dv.tasshack.com/installation).
 2. Configurare l'integrazione con l'account **Dreamehome** e con la stessa regione scelta nell'app. L'accesso tramite email è richiesto; per un login Google o Apple occorre creare una password dedicata nelle impostazioni dell'app. Le credenziali vanno inserite solo nell'interfaccia di Home Assistant.
-3. Verificare che in Home Assistant appaia un'entità `vacuum.*` e che i comandi base funzionino.
+3. Verificare che in Home Assistant appaia un'entità `vacuum.*`.
 4. Aggiungere `https://github.com/ebordoni/dreame-controller` come repository di addon Home Assistant, installare **Dreame Controller** e aprirlo dal pannello laterale.
 
 L'addon comunica con Home Assistant attraverso il [proxy interno del Supervisor](https://developers.home-assistant.io/docs/apps/communication/) e il token fornito all'addon. Non espone una porta diretta: la UI è accessibile tramite Ingress.
