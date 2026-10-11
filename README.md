@@ -9,6 +9,7 @@ Il modello D10 Plus Gen 2 è supportato dall'integrazione Dreame Vacuum. La conn
 La versione 0.2.0 mostra la mappa corrente e consente di selezionare le stanze da pulire. Nei **Predefiniti** si salvano una potenza e un numero di passate comuni a tutte le stanze. In **Nuova pulizia** si possono modificare quei valori per una o più stanze: le modifiche valgono solo per il comando corrente. I predefiniti sono conservati nel volume dati dell'addon e sopravvivono a riavvii e aggiornamenti. La selezione avviene nell'elenco accanto alla mappa; la selezione tramite tocco sulla mappa non è ancora disponibile.
 
 La pulizia per stanze usa il servizio [Dreame Vacuum vacuum_clean_segment](https://dv.tasshack.com/guide/services/vacuum-services). Se nell'integrazione sono attive la pulizia personalizzata o la sequenza stanze, occorre disattivarle perché l'integrazione potrebbe ignorare potenza e passate inviate dall'addon. L'invio del comando al robot non è ancora stato verificato su una pulizia reale.
+
 ## Installazione
 
 1. Installare HACS e l'integrazione Dreame Vacuum in Home Assistant, seguendo la [guida ufficiale del progetto](https://dv.tasshack.com/installation).
