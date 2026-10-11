@@ -11,7 +11,7 @@ Il modello D10 Plus Gen 2 (`dreame.vacuum.r2423`) compare nell'[elenco dei dispo
 1. Installare HACS e l'integrazione Dreame Vacuum in Home Assistant, seguendo la [guida ufficiale del progetto](https://dv.tasshack.com/installation).
 2. Configurare l'integrazione con l'account **Dreamehome** e con la stessa regione scelta nell'app. L'accesso tramite email è richiesto; per un login Google o Apple occorre creare una password dedicata nelle impostazioni dell'app. Le credenziali vanno inserite solo nell'interfaccia di Home Assistant.
 3. Verificare che in Home Assistant appaia un'entità `vacuum.*` e che i comandi base funzionino.
-4. Aggiungere `https://github.com/ebordoni/dreame-controller` come repository di addon Home Assistant, installare l'addon **Dreame Controller** e aprirlo dal pannello laterale.
+4. Il repository GitHub è privato: copiare il contenuto della cartella `addon/` in `/addons/dreame_controller/` sull'host Home Assistant, ricaricare il catalogo degli addon locali, installare **Dreame Controller** e aprirlo dal pannello laterale. Se il repository diventerà pubblico, potrà essere aggiunto al catalogo degli addon tramite URL.
 
 L'addon comunica con Home Assistant attraverso il [proxy interno del Supervisor](https://developers.home-assistant.io/docs/apps/communication/) e il token fornito all'addon. Non espone una porta diretta: la UI è accessibile tramite Ingress.
 
