@@ -22,4 +22,3 @@ ENV NODE_ENV=production PORT=8103 FRONTEND_DIR=/app/public
 EXPOSE 8103
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s CMD wget -qO- http://localhost:8103/api/health || exit 1
 CMD ["node", "dist/index.js"]
-

@@ -14,4 +14,3 @@ test("filtra gli stati Home Assistant validi", () => {
   assert.equal(isVacuumState({ entity_id: "vacuum.robot", state: "docked", attributes: {} }), true);
   assert.equal(isVacuumState({ entity_id: "sensor.battery", state: "80", attributes: {} }), false);
 });
-

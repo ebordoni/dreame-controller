@@ -50,4 +50,3 @@ export function isAction(value: string): value is keyof typeof actions {
 export function isEntityId(value: string): boolean {
   return /^vacuum\.[a-z0-9_]+$/.test(value);
 }
-

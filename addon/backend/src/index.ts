@@ -47,4 +47,3 @@ app.get("*", (_req, res) => res.sendFile(path.join(publicDir, "index.html")));
 
 const port = Number(process.env.PORT ?? 8103);
 app.listen(port, "0.0.0.0", () => console.log(`Dreame Controller in ascolto sulla porta ${port}`));
-

@@ -33,4 +33,3 @@ Per eseguire il backend fuori da Home Assistant, impostare `HA_BASE_URL` all'URL
 Il [collegamento locale diretto](https://dv.tasshack.com/configuration/local) dell'integrazione è documentato per vecchi dispositivi configurabili tramite Xiaomi Home e non fornisce la mappa. Per questo modello Dreamehome la comunicazione dipende dai server Dreame. [Valetudo](https://valetudo.cloud/pages/general/supported-robots/) non elenca il D10 Plus Gen 2. L'app può essere più veloce da usare rispetto all'app ufficiale, ma non può eliminare i tempi del cloud.
 
 Il codice dell'integrazione Dreame Vacuum non viene copiato in questo repository. L'addon interagisce solo con le API pubbliche di Home Assistant.
-
