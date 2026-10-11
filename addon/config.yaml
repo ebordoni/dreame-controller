@@ -1,6 +1,6 @@
 name: "Dreame Controller"
 description: "Controllo rapido del robot Dreame tramite Home Assistant"
-version: "0.1.1"
+version: "0.1.2"
 slug: "dreame_controller"
 init: false
 arch:

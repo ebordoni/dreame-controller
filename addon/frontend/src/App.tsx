@@ -25,6 +25,11 @@ const stateLabels: Record<string, string> = {
   unavailable: "Non disponibile",
 };
 
+function apiUrl(path: string): string {
+  const ingressRoot = window.location.href.replace(/\/+$/, "/");
+  return new URL(`api/${path}`, ingressRoot).toString();
+}
+
 export default function App() {
   const [vacuums, setVacuums] = useState<Vacuum[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
@@ -34,7 +39,7 @@ export default function App() {
 
   const refresh = useCallback(async () => {
     try {
-      const response = await fetch("./api/vacuums");
+      const response = await fetch(apiUrl("vacuums"));
       const body = await response.json();
       if (!response.ok) throw new Error(body.error ?? "Home Assistant non disponibile");
       setVacuums(body);
@@ -61,7 +66,7 @@ export default function App() {
     setBusy(true);
     setError(null);
     try {
-      const response = await fetch(`./api/vacuums/${encodeURIComponent(selected)}/${action}`, { method: "POST" });
+      const response = await fetch(apiUrl(`vacuums/${encodeURIComponent(selected)}/${action}`), { method: "POST" });
       const body = await response.json();
       if (!response.ok) throw new Error(body.error ?? "Comando non riuscito");
       await refresh();
