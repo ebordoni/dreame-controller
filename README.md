@@ -4,8 +4,11 @@ Addon per Home Assistant con un'interfaccia rapida per il robot Dreame D10 Plus 
 
 ## Stato
 
-Il modello D10 Plus Gen 2 (`dreame.vacuum.r2423`) compare nell'[elenco dei dispositivi supportati](https://dv.tasshack.com/guide/more/supported-devices). La connessione è stata verificata con firmware `4.3.3_1438`, account Dreamehome sul server Europa e integrazione Dreame Vacuum `v2.0.1`. Home Assistant ha creato l'entità `vacuum.d10_plus_gen_2` e rende disponibili stato, batteria, mappa e stanze. L'addon `0.1.2` è installato tramite URL del repository e la lettura di stato e batteria è stata verificata nell'interfaccia Ingress. Sono presenti i comandi di avvio, pausa, ripresa, stop e ritorno alla base; l'esecuzione dei comandi sul robot non è ancora stata verificata. Le funzioni per stanze, zone e mappe verranno aggiunte dopo aver verificato i relativi comandi.
+Il modello D10 Plus Gen 2 è supportato dall'integrazione Dreame Vacuum. La connessione è stata verificata con firmware 4.3.3_1438, account Dreamehome sul server Europa e integrazione v2.0.1. Home Assistant rende disponibili stato, batteria, mappa e stanze.
 
+La versione 0.2.0 mostra la mappa corrente e consente di selezionare le stanze da pulire. Nei **Predefiniti** si salvano una potenza e un numero di passate comuni a tutte le stanze. In **Nuova pulizia** si possono modificare quei valori per una o più stanze: le modifiche valgono solo per il comando corrente. I predefiniti sono conservati nel volume dati dell'addon e sopravvivono a riavvii e aggiornamenti. La selezione avviene nell'elenco accanto alla mappa; la selezione tramite tocco sulla mappa non è ancora disponibile.
+
+La pulizia per stanze usa il servizio [Dreame Vacuum vacuum_clean_segment](https://dv.tasshack.com/guide/services/vacuum-services). Se nell'integrazione sono attive la pulizia personalizzata o la sequenza stanze, occorre disattivarle perché l'integrazione potrebbe ignorare potenza e passate inviate dall'addon. L'invio del comando al robot non è ancora stato verificato su una pulizia reale.
 ## Installazione
 
 1. Installare HACS e l'integrazione Dreame Vacuum in Home Assistant, seguendo la [guida ufficiale del progetto](https://dv.tasshack.com/installation).

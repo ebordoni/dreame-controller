@@ -6,14 +6,20 @@ export type VacuumState = {
     battery_level?: number;
     battery?: number;
     fan_speed?: string;
+    fan_speed_list?: string[];
     supported_features?: number;
+    selected_map?: string;
+    selected_map_index?: number;
+    rooms?: Record<string, Array<{ id: number; name: string }>>;
+    customized_cleaning?: boolean;
+    cleaning_sequence?: unknown;
   };
 };
 
 const baseUrl = (process.env.HA_BASE_URL ?? "http://supervisor/core/api").replace(/\/$/, "");
 const token = process.env.HA_TOKEN ?? process.env.SUPERVISOR_TOKEN;
 
-export async function haRequest(path: string, init?: RequestInit): Promise<unknown> {
+export async function haFetch(path: string, init?: RequestInit): Promise<Response> {
   if (!token) throw new Error("Token Home Assistant non configurato");
   const response = await fetch(`${baseUrl}${path}`, {
     ...init,
@@ -25,7 +31,11 @@ export async function haRequest(path: string, init?: RequestInit): Promise<unkno
     signal: AbortSignal.timeout(10000),
   });
   if (!response.ok) throw new Error(`Home Assistant ha risposto ${response.status}`);
-  return response.json();
+  return response;
+}
+
+export async function haRequest(path: string, init?: RequestInit): Promise<unknown> {
+  return (await haFetch(path, init)).json();
 }
 
 export function isVacuumState(value: unknown): value is VacuumState {

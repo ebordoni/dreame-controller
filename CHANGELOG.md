@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Mappa corrente ed elenco delle stanze disponibili.
+- Potenza e passate predefinite, comuni a tutte le stanze e persistenti.
+- Pulizia delle stanze selezionate con modifiche temporanee per stanza.
+- Controlli sui segmenti e sui parametri prima di inviare il comando.
+
 ## 0.1.2
 
 - Corregge gli URL delle API quando Home Assistant apre l'addon tramite Ingress con due slash finali.
